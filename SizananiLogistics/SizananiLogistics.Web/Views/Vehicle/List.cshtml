@@ -1,0 +1,41 @@
+﻿@model VehicleListViewModel
+
+@{
+    ViewData["Title"] = "Vehicle List";
+}
+
+<div class="container">
+    <h2>Vehicle List</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th hidden>ID</th>
+                <th>Type</th>
+                <th>Registration Number</th>
+                <th>Model</th>
+                <th>Weight</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model.Vehicles)
+            {
+                <tr>
+                    <td hidden>@vehicle.Id</td>
+                    <td>@vehicle.Type</td>
+                    <td>@vehicle.RegistrationNumber</td>
+                    <td>@vehicle.Model</td>
+                    <td>@vehicle.Weight</td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@vehicle.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@vehicle.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

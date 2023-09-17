@@ -1,0 +1,54 @@
+﻿@model ContractorDetailsViewModel
+
+@{
+    ViewData["Title"] = "Contractor Details";
+}
+
+<div class="container">
+    <h2>Contractor Details</h2>
+
+    <form asp-controller="Contractor" asp-action="Details" method="post">
+        <div class="form-group">
+            <label for="SelectedContractor">Select Contractor:</label>
+            <select asp-for="ContractorsDictionary" class="form-control" id="SelectedContractor" name="SelectedContractor">
+                <option value="">-- Select Contractor --</option>
+                @foreach (var contractor in Model.ContractorsDictionary)
+                {
+                    <option value="@contractor.Key">@contractor.Value</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Show Vehicles</button>
+    </form>
+
+    <a asp-controller="Vehicle" asp-action="Register" asp-route-id="@Model.SelectedContractor?.Id">Add new vehicle</a>
+
+    @if (Model.SelectedContractor != null)
+    {
+        <h3>Contractor: @Model.SelectedContractor.Name</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th hidden>Id</th>
+                    <th>Type</th>
+                    <th>Registration Number</th>
+                    <th>Model</th>
+                    <th>Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicle in Model.SelectedContractor.Vehicles)
+                {
+                    <tr>
+                        <td hidden>@vehicle.Id</td>
+                        <td>@vehicle.Type</td>
+                        <td>@vehicle.RegistrationNumber</td>
+                        <td>@vehicle.Model</td>
+                        <td>@vehicle.Weight</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

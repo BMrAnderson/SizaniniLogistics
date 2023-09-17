@@ -1,0 +1,30 @@
+﻿@model EditVehicleViewModel
+
+@{
+    ViewData["Title"] = "Edit Vehicle";
+}
+
+<div class="container">
+    <h2>Edit Vehicle</h2>
+
+    <form asp-controller="Vehicle" asp-action="Edit" method="post">
+        <input asp-for="Vehicle.Id" hidden />
+        <div class="form-group">
+            <label asp-for="Vehicle.Type">Type:</label>
+            <input asp-for="Vehicle.Type" type="text" class="form-control" id="Vehicle_Type" name="Vehicle.Type" required>
+        </div>
+        <div class="form-group">
+            <label asp-for="Vehicle.RegistrationNumber">Registration Number:</label>
+            <input asp-for="Vehicle.RegistrationNumber" type="text" class="form-control" id="Vehicle_RegistrationNumber" name="Vehicle.RegistrationNumber" required>
+        </div>
+        <div class="form-group">
+            <label asp-for="Vehicle.Model">Model:</label>
+            <input asp-for="Vehicle.Model" type="text" class="form-control" id="Vehicle_Model" name="Vehicle.Model" required>
+        </div>
+        <div class="form-group">
+            <label asp-for="Vehicle.Weight">Weight:</label>
+            <input asp-for="Vehicle.Weight" type="number" class="form-control" id="Vehicle_Weight" name="Vehicle.Weight" required>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>

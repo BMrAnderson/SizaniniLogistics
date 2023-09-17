@@ -1,0 +1,29 @@
+﻿@model VehicleContractorSummaryViewModel
+
+@{
+    ViewData["Title"] = "Vehicle Contractor Summary";
+}
+
+<div class="container">
+    <h2>Vehicle Contractor Summary</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Contractor Name</th>
+                <th>Total Vehicles</th>
+                <th>Total Weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var summary in Model.VehicleContractorSummaries)
+            {
+                <tr>
+                    <td>@summary.ContractorName</td>
+                    <td>@summary.TotalVehicles</td>
+                    <td>@summary.TotalWeight</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
