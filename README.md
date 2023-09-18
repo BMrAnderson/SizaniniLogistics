@@ -9,7 +9,7 @@ This project is structured with multiple layers to maintain a clean and organize
 - **Web MVC Project**: `SizananiLogistics.Web` - The user interface layer, responsible for handling user requests and presenting information.
 - **Application Layer**: Contains business logic and orchestrates actions between the UI and data access layers. It uses the Infrastructure layer.
 - **Infrastructure Layer**: Contains implementations for data access, including SQL database operations. The SQL repository implementations can be found here.
-- **Database**: The database is created using Entity Framework Core migrations. You can find migration scripts in the `Database/Scripts` folder.
+- **Database**: You can find migration scripts in the `Database/Scripts` folder.
 
 ## Getting Started
 
